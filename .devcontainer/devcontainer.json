@@ -1,0 +1,47 @@
+{
+  "name": "backpack",
+  "build": {
+    "dockerfile": "dockerfile",
+    "args": {
+      // arguments to be used in Dockerfile
+      "PYTHON_VER": "3.12",
+      "PYTHON_ENV": "backpack",
+      "SETUP_FOLDER": "setup"
+    }
+  },
+  "customizations": {
+    "settings": {
+      // Define python path - based on env created in setup_env.sh
+      "python.defaultInterpreterPath": "/opt/sticker/bin/python",
+      "python.selectInterpreter": "/opt/sticker/bin/python",
+      "python.terminal.activateEnvironment": true,
+      // Disable A/B experiments from VSCode
+      "python.experiments.enabled": false,
+      "workbench.enableExperiments": false,
+      "jupyter.experiments.enabled": false,
+      // Enable Ruff for linting
+      "editor.formatOnSaveMode": false,
+      "editor.defaultFormatter": "charliemarsh.ruff"
+    },
+    "vscode": {
+      "extensions": [
+        // Documentation Extensions
+        "purocean.drawio-preview",
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one",
+        // Docker Supporting Extensions
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        // Python Extensions
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff",
+        // Github Actions
+        "github.vscode-github-actions"
+      ]
+    }
+  },
+  runArgs: [
+    "--name","backpack"
+  ]
+}
